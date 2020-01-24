@@ -14,7 +14,7 @@ void
 mySort (int N, keytype* A)
 {
   /* Lucky you, you get to start from scratch */
-  int i, j, start, end;
+  int i, j, start, end, mid;
   keytype temp;
   for(i = 1; i < N; i++){
 	start = 0;
