@@ -16,7 +16,7 @@ mySort (int N, keytype* A)
   /* Lucky you, you get to start from scratch */
   int i, j;
   keytype temp;
-  for(i = 1, i < N, i++){
+  for(i = 1; i < N; i++){
 	  j = i - 1;	  
 	  while(j >= 0 && A[j] > A[i]){
 		  A[j+1] = A[j];
