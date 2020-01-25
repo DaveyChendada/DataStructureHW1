@@ -11,9 +11,31 @@
 
 //merge two array
 void
-merge(keytype* arr, int l, int m, int r)
+merge(keytype* arr, keytype* temparr, int l, int m, int r)
 {
-    int i, j, k;
+	
+	int l_start = l;
+	int l_end = m;
+	int r_start = m+1;
+	int r_end = r;
+	int k = l;
+	
+	while(l_start <= l_end && r_start <= r_end){
+		if(arr[l_start] > arr[r_start])
+			temparr[k++] = arr[r_start++];
+		else
+			temparr[k++] = arr[l_start++];
+	}
+	
+	while(l_start <= l_end)
+		temparr[k++] = arr[l_start++];
+	
+	while(r_start <= r_end)
+		temparr[k++] = arr[r_start++];
+	
+	for(k = l; k <= r; ++k)
+		arr[k] = temparr[k];
+   /* int i, j, k;
     int n1 = m-l+1;
     int n2 = r-m;
 
@@ -49,7 +71,7 @@ merge(keytype* arr, int l, int m, int r)
         arr[k] = R[j];
         j++;
         k++;
-    }
+    }*/
 
 }
 
@@ -60,15 +82,15 @@ merge(keytype* arr, int l, int m, int r)
 
 
 void
-mergeSort(keytype* arr, int l, int r)
+mergeSort(keytype* arr, keytype* temparr, int l, int r)
 {
 
     if(l < r){
         //same as (l+r)/2, but avoid overflow for the large l and r
         int  m = (l + r)/2;
-        mergeSort(arr, l, m);
-        mergeSort(arr, m+1, r);
-        merge(arr, l, m, r);
+        mergeSort(arr, temparr, l, m);
+        mergeSort(arr, temparr, m+1, r);
+        merge(arr, temparr, l, m, r);
     }
 }
 
@@ -77,7 +99,8 @@ mySort (int N, keytype* A)
 {
   /* Lucky you, you get to start from scratch */
   /*oh really ?*/
-    mergeSort(A, 0, N-1);
+  keytype* temp = new keytype[N];
+  mergeSort(A, temp, 0, N-1);
 
     
 }
