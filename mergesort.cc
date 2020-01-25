@@ -14,10 +14,10 @@ void
 merge(keytype* arr, int l, int m, int r)
 {
     int i, j, k;
-    int n1 = m-l-1;
+    int n1 = m-l+1;
     int n2 = r-m;
 
-    int L[n1], R[n2];
+    keytype L[n1], R[n2];
     //copy two array
     for(i = 0; i < n1; i++)
     {
