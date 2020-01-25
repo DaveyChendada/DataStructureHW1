@@ -62,12 +62,11 @@ newCopy (int N, const keytype* A)
 void assertIsSorted (int N, const keytype* A)
 {
   for (int i = 1; i < N; ++i) {
-    /*if (A[i-1] > A[i]) {
+    if (A[i-1] > A[i]) {
       fprintf (stderr, "*** ERROR ***\n");
       fprintf (stderr, "  A[i=%d] == %lu > A[%d] == %lu\n", i-1, A[i-1], i, A[i]);
       assert (A[i-1] <= A[i]);
-    }*/
-	printf("The num is %d\n", A[i]);
+    }
   } /* i */
   printf ("\t(Array is sorted.)\n");
 }
