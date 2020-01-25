@@ -17,7 +17,7 @@ merge(keytype* arr, int l, int m, int r)
     int n1 = m-l+1;
     int n2 = r-m;
 
-	k = 0;
+	k = l;
     keytype L[n1], R[n2];
     //copy two array
     for(i = 0; i < n1; i++)
